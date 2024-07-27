@@ -38,7 +38,9 @@ const AddMessage = () => {
       .from('Messages') // Înlocuiește cu numele tabelului tău
       .insert([
         newMessage
-      ]);
+      ]{
+        returning: 'representation' 
+      });
 
     if (error) {
       console.error('Error inserting data:', error);
