@@ -1,6 +1,10 @@
 import React, { useEffect, useState, useRef } from "react";
 import { useLocation } from "react-router-dom";
 
+const supabase_url = "https://cydexirgvhfcdabxhuoy.supabase.co";
+const supabase_key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN5ZGV4aXJndmhmY2RhYnhodW95Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjE4OTU5MTksImV4cCI6MjAzNzQ3MTkxOX0.o61wGQ6Fwz6tSelK2-7pkhhfDkJ9MPzC8h7mdKjn_nY";
+const supabase = createClient(supabase_url, supabase_key);
+
 const MessageList = () => {
   const [messages, setMessages] = useState([]);
   const [focusedMessageId, setFocusedMessageId] = useState(null);
@@ -21,10 +25,13 @@ const MessageList = () => {
   useEffect(() => {
     const fetchMessages = async () => {
       console.log(import.meta.env.VITE_API_URL);
+      /*
       const response = await fetch(
         `${import.meta.env.VITE_API_URL}/api/messages`
       );
       const data = await response.json();
+      */
+      const { data } = await supabase.from("Messages").select();
       setMessages(data);
     };
     fetchMessages();
