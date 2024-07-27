@@ -40,7 +40,7 @@ const AddMessage = () => {
         newMessage
       ],{
         returning: 'representation' 
-      });
+      }).select();
 
     if (error) {
       console.error('Error inserting data:', error);
