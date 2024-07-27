@@ -45,7 +45,8 @@ const AddMessage = () => {
     if (error) {
       console.error('Error inserting data:', error);
     } else {
-       const redirectUrl = `/?id=${data.id}`;
+       //const redirectUrl = `/?id=${data.id}`;
+      const redirectUrl = `/?id=1`;
         navigate(redirectUrl);
       console.log('Data inserted:', data);
     }
