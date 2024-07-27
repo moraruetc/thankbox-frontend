@@ -40,13 +40,13 @@ const AddMessage = () => {
         newMessage
       ],{
         returning: 'representation' 
-      }).select();
+      }).select().single();
 
     if (error) {
       console.error('Error inserting data:', error);
     } else {
-       //const redirectUrl = `/?id=${data.id}`;
-      const redirectUrl = `/?id=1`;
+       const redirectUrl = `/?id=${data.id}`;
+      //const redirectUrl = `/?id=1`;
         navigate(redirectUrl);
       console.log('Data inserted:', data);
     }
