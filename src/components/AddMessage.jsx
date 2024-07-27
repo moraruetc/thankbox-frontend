@@ -1,6 +1,11 @@
 import React, { useState } from "react";
 import ImageModal from "./ImageModal";
 import { useNavigate } from "react-router-dom";
+import { createClient } from "@supabase/supabase-js";
+
+const supabase_url = "https://cydexirgvhfcdabxhuoy.supabase.co";
+const supabase_key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN5ZGV4aXJndmhmY2RhYnhodW95Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjE4OTU5MTksImV4cCI6MjAzNzQ3MTkxOX0.o61wGQ6Fwz6tSelK2-7pkhhfDkJ9MPzC8h7mdKjn_nY";
+const supabase = createClient(supabase_url, supabase_key);
 
 const AddMessage = () => {
   const [name, setName] = useState("");
@@ -21,12 +26,29 @@ const AddMessage = () => {
     e.preventDefault();
     const newMessage = { name, message, image: selectedImage };
     try {
+      /*
       const response = await fetch(`${import.meta.env.VITE_API_URL}/api/messages`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(newMessage),
       });
-  
+  */
+
+    const { data, error } = await supabase
+      .from('Messages') // Înlocuiește cu numele tabelului tău
+      .insert([
+        newMessage
+      ]);
+
+    if (error) {
+      console.error('Error inserting data:', error);
+    } else {
+       const redirectUrl = `/?id=${data.id}`;
+        navigate(redirectUrl);
+      console.log('Data inserted:', data);
+    }
+
+     /* 
       if (response.ok) {
         const data = await response.json();
         const redirectUrl = `/?id=${data.id}`;
@@ -34,6 +56,7 @@ const AddMessage = () => {
       } else {
         throw new Error("Failed to add message");
       }
+      */
     } catch (error) {
       alert("Error adding message: " + error.message);
     }
