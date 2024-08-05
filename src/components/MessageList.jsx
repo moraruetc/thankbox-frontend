@@ -26,13 +26,13 @@ const MessageList = () => {
   useEffect(() => {
     const fetchMessages = async () => {
       console.log(import.meta.env.VITE_API_URL);
-      /*
+      
       const response = await fetch(
-        `${import.meta.env.VITE_API_URL}/api/messages`
+        `${import.meta.env.VITE_API_URL}/get-messages`
       );
       const data = await response.json();
-      */
-      const { data } = await supabase.from("Messages").select();
+      
+      //const { data } = await supabase.from("Messages").select();
       setMessages(data);
     };
     fetchMessages();
