@@ -26,14 +26,14 @@ const AddMessage = () => {
     e.preventDefault();
     const newMessage = { name, message, image: selectedImage };
     try {
-      /*
-      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/messages`, {
+    
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/post-message`, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: { "Content-Type": "application/json", 'Authorization': `Bearer ${supabase_key}` },
         body: JSON.stringify(newMessage),
       });
-  */
-
+  
+/*
     const { data, error } = await supabase
       .from('Messages') // Înlocuiește cu numele tabelului tău
       .insert([
@@ -41,7 +41,7 @@ const AddMessage = () => {
       ],{
         returning: 'representation' 
       }).select().single();
-
+*/
     if (error) {
       console.error('Error inserting data:', error);
     } else {
