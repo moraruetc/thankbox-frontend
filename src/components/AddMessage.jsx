@@ -41,7 +41,7 @@ const AddMessage = () => {
       ],{
         returning: 'representation' 
       }).select().single();
-*/
+
     if (error) {
       console.error('Error inserting data:', error);
     } else {
@@ -50,8 +50,10 @@ const AddMessage = () => {
         navigate(redirectUrl);
       console.log('Data inserted:', data);
     }
+    
+    */
 
-     /* 
+     
       if (response.ok) {
         const data = await response.json();
         const redirectUrl = `/?id=${data.id}`;
@@ -59,7 +61,7 @@ const AddMessage = () => {
       } else {
         throw new Error("Failed to add message");
       }
-      */
+      
     } catch (error) {
       alert("Error adding message: " + error.message);
     }
