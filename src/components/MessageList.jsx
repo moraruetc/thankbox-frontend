@@ -32,7 +32,6 @@ const MessageList = () => {
         {
           method: 'GET',
           headers: {
-            'Content-Type': 'application/json',
             'Authorization': `Bearer ${supabase_key}`
           }
         }
