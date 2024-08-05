@@ -28,7 +28,14 @@ const MessageList = () => {
       console.log(import.meta.env.VITE_API_URL);
       
       const response = await fetch(
-        `${import.meta.env.VITE_API_URL}/get-messages`
+        `${import.meta.env.VITE_API_URL}/get-messages`,
+        {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${supabase_key}`
+          }
+        }
       );
       const data = await response.json();
       
