@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import AddMessage from "./components/AddMessage.jsx";
 import MessageList from "./components/MessageList.jsx";
 import Signup from "./components/Signup.jsx";
+import Login from "./components/Signup.jsx";
 import Navbar from "./components/Navbar.jsx";
 
 const App = () => {
