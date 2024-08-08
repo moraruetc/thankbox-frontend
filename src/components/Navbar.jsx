@@ -9,6 +9,18 @@ const Navbar = () => {
       </Link>
       <div className="mt-2 md:mt-0">
         <Link
+          to="/signup"
+          className="mr-4 text-lg text-gray-700 hover:text-blue-600 transition duration-300 ease-in-out hover:underline"
+        >
+          SignUp
+        </Link>
+        <Link
+          to="/login"
+          className="mr-4 text-lg text-gray-700 hover:text-blue-600 transition duration-300 ease-in-out hover:underline"
+        >
+          Login
+        </Link>
+        <Link
           to="/"
           className="mr-4 text-lg text-gray-700 hover:text-blue-600 transition duration-300 ease-in-out hover:underline"
         >
