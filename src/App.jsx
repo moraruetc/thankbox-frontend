@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import AddMessage from "./components/AddMessage.jsx";
 import MessageList from "./components/MessageList.jsx";
 import Signup from "./components/Signup.jsx";
-import Singin from "./components/Signin.jsx";
+import Signin from "./components/Signin.jsx";
 import Navbar from "./components/Navbar.jsx";
 
 const App = () => {
@@ -15,7 +15,7 @@ const App = () => {
           <Route path="/" element={<MessageList />} />
           <Route path="/add" element={<AddMessage />} />
           <Route path="/signup" element={<Signup />} />
-          <Route path="/singin" element={<Singin />} />
+          <Route path="/singin" element={<Signin />} />
         </Routes>
       </div>
     </Router>
