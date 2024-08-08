@@ -15,10 +15,11 @@ const Signup = () => {
     setMessage(null);
 
     try {
-      const response = await fetch('/signup', {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/signup`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          'Authorization': `Bearer ${supabase_key}`
         },
         body: JSON.stringify({ email, password }),
       });
