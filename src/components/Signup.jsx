@@ -8,6 +8,8 @@ const Signup = () => {
   const [error, setError] = useState(null);
   const [message, setMessage] = useState(null);
 
+  const supabase_key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN5ZGV4aXJndmhmY2RhYnhodW95Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjE4OTU5MTksImV4cCI6MjAzNzQ3MTkxOX0.o61wGQ6Fwz6tSelK2-7pkhhfDkJ9MPzC8h7mdKjn_nY";
+
   const handleSignup = async (e) => {
     e.preventDefault();
     setLoading(true);
